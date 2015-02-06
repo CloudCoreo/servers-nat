@@ -1,0 +1,2 @@
+script-order:
+  - install_ha_nat.sh
