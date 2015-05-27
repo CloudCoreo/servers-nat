@@ -54,7 +54,7 @@ variables:
     NAT_KEY:
         required: true
         description: The name of the key to use for the nat box
-	default: ""
+        default: ""
     NAT_AMI:
         required: true
         description: the ami id of the nat
