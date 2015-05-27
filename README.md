@@ -1,7 +1,7 @@
 cloudcoreo-nat
 ==============
 
-NAT instance configuration
+Highly Available NAT instance configuration
 
 In addition, it will create and maintain a <b>mostly-available</b> NAT instance in the public subnets.
 
@@ -9,15 +9,18 @@ In addition, it will create and maintain a <b>mostly-available</b> NAT instance 
 
 This repo is designed to work with the [CloudCoreo](http://www.cloudcoreo.com) engine. Adding this repository as a sub-module will ensure a High-uptime NAT is configured to work even in the event of a loss of availability zone.
 
-<h3>OVERRIDE REQUIRED VARIABLES</h3>
+## Description
+Highly Available NAT instance configuration
+
+## OVERRIDE OPTIONAL VARIABLES
 * <b>VPC_NAME:</b>
   * required: true
   * description: this is the name of your vpc as defined by your [CloudCoreo](http://www.cloudcoreo.com) setup
+  * default: test-vpc
 * <b>PUBLIC_SUBNET_NAME:</b>
   * required: true
   * description: this is the name of the public subnet group as defined by your [CloudCoreo](http://www.cloudcoreo.com) setup
-
-<h3>OVERRIDE OPTIONAL VARIABLES</h3>
+  * default: test-public-subnet
 * <b>NAT_SG_NAME:</b>
   * required: true
   * description: the name of the security group to create for the NAT
