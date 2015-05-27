@@ -65,7 +65,7 @@ variables:
     PUBLIC_SUBNET_NAME:
         required: true
         description: the cloudcoreo name of the public vpc subnets
-	default: test-public-subnet
+        default: test-public-subnet
     MONITORINTERVAL:
         required: true
         description: time in seconds between route checks
