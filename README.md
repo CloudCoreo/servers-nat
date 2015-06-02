@@ -59,6 +59,9 @@ Highly Available NAT instance configuration
   * description: the instance size of the nat
   * default: "m1.small"
 
+## Icon
+![alt text](https://raw.githubusercontent.com/CloudCoreo/servers-nat/master/images/naticon.png "HA-NAT icon")
+
 ## Diagram
 ![alt text](https://raw.githubusercontent.com/CloudCoreo/servers-nat/master/images/hanat.png "HA-NAT")
 
