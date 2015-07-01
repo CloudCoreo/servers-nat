@@ -13,48 +13,58 @@ This repo is designed to work with the [CloudCoreo](http://www.cloudcoreo.com) e
 Highly Available NAT instance configuration
 
 ## OVERRIDE OPTIONAL VARIABLES
-* <b>VPC_NAME:</b>
+* `VPC_NAME:`
   * required: true
   * description: this is the name of your vpc as defined by your [CloudCoreo](http://www.cloudcoreo.com) setup
   * default: test-vpc
-* <b>PUBLIC_SUBNET_NAME:</b>
+* `PUBLIC_SUBNET_NAME:`
   * required: true
   * description: this is the name of the public subnet group as defined by your [CloudCoreo](http://www.cloudcoreo.com) setup
   * default: test-public-subnet
-* <b>NAT_SG_NAME:</b>
+* `NAT_SG_NAME:`
   * required: true
   * description: the name of the security group to create for the NAT
   * default: "NAT-sg"
-* <b>NAT_INGRESS_PORTS:</b>
+* `NAT_INGRESS_PORTS:`
   * required: true
   * description: allowed ingress ports on the nat
   * default:
     * - "80"
     * - "443"
-* <b>NAT_INGRESS_CIDRS:</b>
+* `NAT_INGRESS_CIDRS:`
   * required: true
   * description: allowed ingress network cidrs on the nat
     * default :
     * - "0.0.0.0/0"
-* <b>NAT_EGRESS_PORTS:</b>
+* `NAT_EGRESS_PORTS:`
   * required: true
   * description: allowed ingress ports on the nat
   * default:
     * - "0-65535"
-* <b>NAT_INGRESS_CIDRS:</b>
+* `NAT_INGRESS_CIDRS:`
   * required: true
   * description: allowed ingress network cidrs on the nat
     * default :
     * - "0.0.0.0/0"
-* <b>NAT_NAME:</b>
+* `NAT_NAME:`
   * required: true
   * description: the name of the nat instance
   * default: "NAT"
-* <b>NAT_AMI:</b>
-  * required: true
+* `NAT_AMI:`
   * description: the ami id of the nat
-  * default: "ami-d69aad93"
-* <b>NAT_SIZE:</b>
+  * switch: INSTANCE::region
+  * cases:
+    * us-east-1: ami-303b1458
+    * us-west-1: ami-ada746e9
+    * us-west-2: ami-69ae8259
+    * eu-west-1: ami-ef76e898
+    * eu-central-1: ami-1e073a03
+    * ap-southeast-1: ami-1a9dac48
+    * ap-northeast-1: ami-11dc2a11
+    * ap-southeast-2: ami-43ee9e79
+    * sa-east-1: ami-63fa417e
+  * type: case
+* `NAT_SIZE:`
   * required: true
   * description: the instance size of the nat
   * default: "m1.small"

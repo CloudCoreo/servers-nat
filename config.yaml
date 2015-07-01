@@ -56,9 +56,19 @@ variables:
         description: The name of the key to use for the nat box
         default: ""
     NAT_AMI:
-        required: true
         description: the ami id of the nat
-        default: "ami-4c9e4b24"
+        switch: INSTANCE::region
+        cases:
+            us-east-1: ami-303b1458
+            us-west-1: ami-ada746e9
+            us-west-2: ami-69ae8259
+            eu-west-1: ami-ef76e898
+            eu-central-1: ami-1e073a03
+            ap-southeast-1: ami-1a9dac48
+            ap-northeast-1: ami-11dc2a11
+            ap-southeast-2: ami-43ee9e79
+            sa-east-1: ami-63fa417e
+        type: case
     NAT_SIZE:
         required: true
         description: the instance size of the nat
