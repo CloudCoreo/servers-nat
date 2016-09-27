@@ -2,11 +2,48 @@ variables:
     NAT_SG_NAME:
         required: true
         description: the name of the security group to create for the NAT
-        default: "NAT-sg"
+        default: NAT-sg
     VPC_NAME:
         required: true
         description: the name of the VPC
-        default: "test-vpc"
+        default: test-vpc
+    NAT_INGRESS_PORTS:
+        required: true
+        description: allowed ingress ports on the nat
+        default:
+            - 0..65535
+        type: array
+    NAT_INGRESS_CIDRS:
+        required: true
+        description: allowed ingress network cidrs on the nat
+        default:
+            - 0.0.0.0/0
+        type: array
+    NAT_EGRESS_PORTS:
+        required: true
+        description: allowed ingress ports on the nat
+        default:
+            - 0..65535
+        type: array
+    NAT_EGRESS_CIDRS:
+        required: true
+        description: allowed ingress network cidrs on the nat
+        default:
+            - 0.0.0.0/0
+        type: array
+    REGION:
+        required: true
+        description: use default except for multiple region use cases
+        default: "INSTANCE::region"
+        type: string
+    NAT_NAME:
+        required: true
+        description: the name of the nat instance
+        default: NAT
+    NAT_SIZE:
+        required: true
+        description: the instance size of the nat
+        default: t2.small
     NAT_GROUP_SIZE_MIN:
         required: true
         description: the miniumum number of NAT instances to launch
@@ -17,45 +54,26 @@ variables:
         description: the maximum number of NAT instances to launch
         default: 1
         type: number
-    NAT_NAME:
+    PUBLIC_SUBNET_NAME:
         required: true
-        description: the name of the nat instance
-        default: "NAT"
-    NAT_INGRESS_PORTS:
+        description: the cloudcoreo name of the public vpc subnets
+        default: test-public-subnet
+    MONITORINTERVAL:
         required: true
-        description: allowed ingress ports on the nat
-        default:
-            - "0..65535"
-        type: array
-    NAT_INGRESS_CIDRS:
+        description: time in seconds between route checks
+        default: 20
+        type: number
+    PRIVATE_SUBNET_NAME:
+        default: test-private-subnet
         required: true
-        description: allowed ingress network cidrs on the nat
-        default :
-            - "0.0.0.0/0"
-        type: array
-    NAT_EGRESS_PORTS:
+        descripiton: the name of the private subnet
+    PRIVATE_SUBNETS:
+        default: "STACK::coreo_aws_vpc_subnet.test-private-subnet.subnet_ids"
         required: true
-        description: allowed ingress ports on the nat
-        default:
-            - "0..65535"
-        type: array
-    NAT_EGRESS_CIDRS:
-        required: true
-        description: allowed ingress network cidrs on the nat
-        default :
-            - "0.0.0.0/0"
-        type: array
-    NAT_NAME:
-        required: true
-        description: the name of the nat instance
-        default: "NAT"
-    NAT_KEY:
-        required: false
-        description: The name of the key to use for the nat box
-        default: ""
+        descripiton: comma seperated list of the private subnet ids
     NAT_AMI:
         description: the ami id of the nat
-        switch: INSTANCE::region
+        switch: "INSTANCE::region"
         cases:
             us-east-1: ami-303b1458
             us-west-1: ami-ada746e9
@@ -67,36 +85,14 @@ variables:
             ap-southeast-2: ami-43ee9e79
             sa-east-1: ami-63fa417e
         type: case
-    NAT_SIZE:
-        required: true
-        description: the instance size of the nat
-        default: "t2.small"
-    PUBLIC_SUBNET_NAME:
-        required: true
-        description: the cloudcoreo name of the public vpc subnets
-        default: test-public-subnet
-    MONITORINTERVAL:
-        required: true
-        description: time in seconds between route checks
-        default: 20
-        type: number
+    NAT_KEY:
+        required: false
+        description: The name of the key to use for the nat box
+        default: TBS
     LOGFILE:
         required: false
         description: ha-nat log file
-        default: "/var/log/ha-nat.log"
-    PRIVATE_SUBNET_NAME:
-        default: "test-private-subnet"
-        required: true
-        descripiton: the name of the private subnet
-    PRIVATE_SUBNETS:
-        default: "STACK::coreo_aws_vpc_subnet.test-private-subnet.subnet_ids"
-        required: true
-        descripiton: comma seperated list of the private subnet ids
-    REGION:
-        required: true
-        description: use default except for multiple region use cases
-        default: "INSTANCE::region"
-        type: string
+        default: /var/log/ha-nat.log
     SUFFIX:
         required: false
         description: when used will use the value to suffix the names of all converged objects
