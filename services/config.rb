@@ -1,8 +1,8 @@
 
-coreo_aws_ec2_securityGroups "${NAT_SG_NAME}" do
+coreo_aws_ec2_securityGroups "${NAT_SG_NAME}${SUFFIX}" do
   action :sustain
   description "NAT security group"
-  vpc "${VPC_NAME}"
+  vpc "${VPC_NAME}${SUFFIX}"
   allows [ 
           { 
             :direction => :ingress,
@@ -29,6 +29,7 @@ coreo_aws_ec2_securityGroups "${NAT_SG_NAME}" do
             :cidrs => ["10.0.0.0/8"],
           }
     ]
+    region "${REGION}"
 end
 
 coreo_aws_iam_policy "${NAT_NAME}" do
@@ -77,20 +78,22 @@ coreo_aws_iam_instance_profile "${NAT_NAME}" do
   policies ["${NAT_NAME}"]
 end
 
-coreo_aws_ec2_instance "${NAT_NAME}" do
+coreo_aws_ec2_instance "${NAT_NAME}${SUFFIX}" do
   action :define
   image_id "${NAT_AMI}"
   size "${NAT_SIZE}"
-  security_groups ["${NAT_SG_NAME}"]
+  security_groups ["${NAT_SG_NAME}${SUFFIX}"]
   associate_public_ip true
   role "${NAT_NAME}"
   ssh_key "${NAT_KEY}"
+  region "${REGION}"
 end
 
-coreo_aws_ec2_autoscaling "${NAT_NAME}" do
+coreo_aws_ec2_autoscaling "${NAT_NAME}${SUFFIX}" do
   action :sustain 
   minimum ${NAT_GROUP_SIZE_MIN}
   maximum ${NAT_GROUP_SIZE_MAX}
-  server_definition "${NAT_NAME}"
-  subnet "${PUBLIC_SUBNET_NAME}"
+  server_definition "${NAT_NAME}${SUFFIX}"
+  subnet "${PUBLIC_SUBNET_NAME}${SUFFIX}"
+  region "${REGION}"
 end

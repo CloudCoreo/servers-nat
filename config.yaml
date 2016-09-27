@@ -92,3 +92,12 @@ variables:
         default: "STACK::coreo_aws_vpc_subnet.test-private-subnet.subnet_ids"
         required: true
         descripiton: comma seperated list of the private subnet ids
+    REGION:
+        required: true
+        description: use default except for multiple region use cases
+        default: "INSTANCE::region"
+        type: string
+    SUFFIX:
+        required: false
+        description: when used will use the value to suffix the names of all converged objects
+        type: string
