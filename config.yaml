@@ -58,6 +58,13 @@ variables:
         required: true
         description: the cloudcoreo name of the public vpc subnets
         default: test-public-subnet
+    TIMEZONE:
+        default: America/Chicago
+        value: America/Chicago
+        description: the timezone the servers should come up in
+        overrides: null
+        required: true
+        type: null
     MONITORINTERVAL:
         required: true
         description: time in seconds between route checks
@@ -89,6 +96,12 @@ variables:
         required: false
         description: The name of the key to use for the nat box
         default: TBS
+    DATADOG_KEY:
+        default: null
+        value: null
+        description: "If you have a datadog key, enter it here and we will install the agent"
+        overrides: null
+        required: false
     LOGFILE:
         required: false
         description: ha-nat log file
