@@ -80,3 +80,7 @@ Highly Available NAT instance configuration
 1. VPC
 1. NAT
 1. High Availability
+
+## Categories
+1. Network
+
