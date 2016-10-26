@@ -82,5 +82,9 @@ Highly Available NAT instance configuration
 1. High Availability
 
 ## Categories
+
+1. Network
+
+## Categories
 1. Network
 
