@@ -1,0 +1,1 @@
+![alt text](https://raw.githubusercontent.com/CloudCoreo/servers-nat/master/images/icon.png "HA-NAT icon")
