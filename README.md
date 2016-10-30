@@ -13,6 +13,7 @@ This repo is designed to work with the [CloudCoreo](http://www.cloudcoreo.com) e
 ## Description
 Highly Available NAT instance configuration
 
+
 ## Hierarchy
 ![composite inheritance hierarchy](https://raw.githubusercontent.com/CloudCoreo/servers-nat/master/images/hierarchy.png "composite inheritance hierarchy")
 
