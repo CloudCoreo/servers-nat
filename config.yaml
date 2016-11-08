@@ -78,20 +78,23 @@ variables:
         default: "STACK::coreo_aws_vpc_subnet.test-private-subnet.subnet_ids"
         required: true
         descripiton: comma seperated list of the private subnet ids
-    # NAT_AMI:
-    #     description: the ami id of the nat
-    #     switch: "INSTANCE::region"
-    #     cases:
-    #         us-east-1: ami-303b1458
-    #         us-west-1: ami-ada746e9
-    #         us-west-2: ami-69ae8259
-    #         eu-west-1: ami-ef76e898
-    #         eu-central-1: ami-1e073a03
-    #         ap-southeast-1: ami-1a9dac48
-    #         ap-northeast-1: ami-11dc2a11
-    #         ap-southeast-2: ami-43ee9e79
-    #         sa-east-1: ami-63fa417e
-    #     type: case
+    NAT_AMI:
+        description: the ami id of the nat
+        switch: "INSTANCE::region"
+        cases:
+            us-east-1: ami-863b6391
+            us-east-2: ami-8d5a00e8
+            us-west-1: ami-f4e8a394
+            us-west-2: ami-d0c066b0
+            ap-south-1: ami-93b5c1fc
+            ap-northeast-2: ami-b036e2de
+            ap-southeast-1: ami-df50f1bc
+            ap-southeast-2: ami-ae714dcd
+            ap-northeast-1: ami-c50cafa4
+            eu-central-1: ami-fd619992
+            eu-west-1: ami-509dd623
+            sa-east-1: ami-98b824f4
+        type: case
     NAT_KEY:
         required: false
         description: The name of the key to use for the nat box
@@ -110,3 +113,7 @@ variables:
         required: false
         description: when used will use the value to suffix the names of all converged objects
         type: string
+
+# NAT AMI's are for:
+#   Amazon Linux AMI 2016.09.0.20161028 x86_64 VPC NAT HVM EB
+
