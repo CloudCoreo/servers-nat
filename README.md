@@ -114,6 +114,9 @@ Highly Available NAT instance configuration
 
 ## Optional variables with default
 
+### `NAT_AMI`:
+  * description: the ami id of the nat
+
 ### `DATADOG_KEY`:
   * description: If you have a datadog key, enter it here and we will install the agent
 
