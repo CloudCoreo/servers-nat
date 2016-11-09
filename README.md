@@ -54,7 +54,7 @@ Highly Available NAT instance configuration
 
 ### `REGION`:
   * description: use default except for multiple region use cases
-  * default: INSTANCE::region
+  * default: PLAN::region
 
 ### `NAT_NAME`:
   * description: the name of the nat instance
@@ -95,7 +95,7 @@ Highly Available NAT instance configuration
 
 ### `PRIVATE_SUBNETS`:
   * description: 
-  * default: STACK::coreo_aws_vpc_subnet.test-private-subnet.subnet_ids
+  * default: COMPOSITE::coreo_aws_vpc_subnet.test-private-subnet.subnet_ids
 
 
 
