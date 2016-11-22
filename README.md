@@ -99,7 +99,7 @@ Highly Available NAT instance configuration
 
 
 
-## Optional variables with no default
+## Optional variables with default
 
 ### `NAT_KEY`:
   * description: The name of the key to use for the nat box
@@ -112,7 +112,7 @@ Highly Available NAT instance configuration
 
 
 
-## Optional variables with default
+## Optional variables with no default
 
 ### `NAT_AMI`:
   * description: the ami id of the nat
