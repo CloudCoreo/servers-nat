@@ -28,7 +28,7 @@ coreo_aws_ec2_securityGroups "${NAT_SG_NAME}${SUFFIX}" do
           :cidrs => ["10.0.0.0/8"],
       }
   ]
-  region "${PLAN::region}"
+  region "PLAN::region"
 end
 
 coreo_aws_iam_policy "${NAT_NAME}" do
