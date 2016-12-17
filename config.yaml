@@ -31,11 +31,6 @@ variables:
         default:
             - 0.0.0.0/0
         type: array
-    REGION:
-        required: true
-        description: use default except for multiple region use cases
-        default: "PLAN::region"
-        type: string
     NAT_NAME:
         required: true
         description: the name of the nat instance
@@ -78,23 +73,6 @@ variables:
         default: "COMPOSITE::coreo_aws_vpc_subnet.test-private-subnet.subnet_ids"
         required: true
         descripiton: comma seperated list of the private subnet ids
-    NAT_AMI:
-        description: the ami id of the nat
-        switch: "PLAN::region"
-        cases:
-            us-east-1: ami-863b6391
-            us-east-2: ami-8d5a00e8
-            us-west-1: ami-f4e8a394
-            us-west-2: ami-d0c066b0
-            ap-south-1: ami-93b5c1fc
-            ap-northeast-2: ami-b036e2de
-            ap-southeast-1: ami-df50f1bc
-            ap-southeast-2: ami-ae714dcd
-            ap-northeast-1: ami-c50cafa4
-            eu-central-1: ami-fd619992
-            eu-west-1: ami-509dd623
-            sa-east-1: ami-98b824f4
-        type: case
     NAT_KEY:
         required: false
         description: The name of the key to use for the nat box
