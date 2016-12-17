@@ -85,7 +85,7 @@ coreo_aws_ec2_instance "${NAT_NAME}${SUFFIX}" do
   associate_public_ip true
   role "${NAT_NAME}"
   ssh_key "${NAT_KEY}"
-  region "${PLAN::region}"
+  region "PLAN::region"
 end
 
 coreo_aws_ec2_autoscaling "${NAT_NAME}${SUFFIX}" do
@@ -94,5 +94,5 @@ coreo_aws_ec2_autoscaling "${NAT_NAME}${SUFFIX}" do
   maximum ${NAT_GROUP_SIZE_MAX}
   server_definition "${NAT_NAME}${SUFFIX}"
   subnet "${PUBLIC_SUBNET_NAME}${SUFFIX}"
-  region "${PLAN::region}"
+  region "PLAN::region"
 end
