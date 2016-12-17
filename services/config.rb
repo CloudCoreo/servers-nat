@@ -2,32 +2,27 @@ coreo_aws_ec2_securityGroups "${NAT_SG_NAME}${SUFFIX}" do
   action :sustain
   description "NAT security group"
   vpc "${VPC_NAME}${SUFFIX}"
-  allows [
-             {
-                 :direction => :ingress,
-                 :protocol => :tcp,
-                 :ports => $ {NAT_INGRESS_PORTS},
-      :cidrs => $ {NAT_INGRESS_CIDRS}
-  },
-      {
-          :direction => :egress,
-          :protocol => :tcp,
-          :ports => $ {NAT_EGRESS_PORTS},
-      :cidrs => $ {NAT_EGRESS_CIDRS}
-  },
-      {
-          :direction => :ingress,
-          :protocol => :udp,
-          :ports => [123],
-          :cidrs => ["0.0.0.0/0"],
-      },
-      {
-          :direction => :egress,
-          :protocol => :udp,
-          :ports => [123],
-          :cidrs => ["10.0.0.0/8"],
-      }
-  ]
+  allows [{
+              :direction => :ingress,
+              :protocol => :tcp,
+              :ports => ${NAT_INGRESS_PORTS},
+      :cidrs => ${NAT_INGRESS_CIDRS}
+  }, {
+      :direction => :egress,
+      :protocol => :tcp,
+      :ports => ${NAT_EGRESS_PORTS},
+      :cidrs => ${NAT_EGRESS_CIDRS}
+  }, {
+      :direction => :ingress,
+      :protocol => :udp,
+      :ports => [123],
+      :cidrs => ["0.0.0.0/0"]
+  }, {
+      :direction => :egress,
+      :protocol => :udp,
+      :ports => [123],
+      :cidrs => ["10.0.0.0/8"]
+  }]
   region "PLAN::region"
 end
 
