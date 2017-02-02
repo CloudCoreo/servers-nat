@@ -52,10 +52,6 @@ Highly Available NAT instance configuration
   * description: allowed ingress network cidrs on the nat
   * default: 0.0.0.0/0
 
-### `REGION`:
-  * description: use default except for multiple region use cases
-  * default: PLAN::region
-
 ### `NAT_NAME`:
   * description: the name of the nat instance
   * default: NAT
@@ -113,9 +109,6 @@ Highly Available NAT instance configuration
 
 
 ## Optional variables with no default
-
-### `NAT_AMI`:
-  * description: the ami id of the nat
 
 ### `DATADOG_KEY`:
   * description: If you have a datadog key, enter it here and we will install the agent
