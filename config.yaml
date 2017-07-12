@@ -94,6 +94,7 @@ variables:
             eu-central-1: ami-fd619992
             eu-west-1: ami-509dd623
             sa-east-1: ami-98b824f4
+            us-gov-west-1: ami-b2d056d3
         type: case
     NAT_KEY:
         required: false
