@@ -98,7 +98,7 @@ variables:
     NAT_KEY:
         required: false
         description: The name of the key to use for the nat box
-        default: TBS
+        default: 
     DATADOG_KEY:
         default: null
         value: null
